@@ -115,8 +115,7 @@
 
   boot.plymouth = {
     enable = true;
-    theme = "solar";  # Assurez-vous que le nom du thème est correct
+    theme = "adi1090x-rings2";  # Assurez-vous que le nom du thème est correct
   #  themePackages = with pkgs; [ plymouth-theme-solar ];  # Assurez-vous que le paquet est correctement nommé
   };
-
 }
