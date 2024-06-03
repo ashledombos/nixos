@@ -113,14 +113,12 @@
   # Définir un fond pour GRUB (facultatif)
   # boot.loader.grub.background = "/path/to/your/background.png";  # Assurez-vous que ce chemin est correct
 
-  boot.plymouth.enable = true;
-
-let
-  adi1090xPlymouthThemes = pkgs.adi1090x-plymouth-themes.override {
-    selected_themes = [ "rings_2" ];
-  };
-in {
-  # Activer Plymouth
-  boot.plymouth.enable = true;
-  boot.plymouth.theme = "rings_2";
+  let
+    adi1090xPlymouthThemes = pkgs.adi1090x-plymouth-themes.override {
+      selected_themes = [ "rings_2" ];
+    };
+  in {
+    # Activer Plymouth
+    boot.plymouth.enable = true;
+    boot.plymouth.theme = "rings_2";
 }
