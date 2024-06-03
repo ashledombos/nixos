@@ -87,38 +87,14 @@
     };
   };
 
+}
+
+let
+  adi1090xPlymouthThemes = pkgs.adi1090x-plymouth-themes.override {
+    selected_themes = [ "rings_2" ];
+  };
+in {
   # Activer Plymouth
-  # boot.plymouth.enable = true;
-
-  # Choisir un thème pour Plymouth
-  # boot.plymouth.theme = "fade-in";  # Choisir parmi d'autres thèmes disponibles
-
-  # Configurer SDDM avec Plymouth
-  # services.xserver.displayManager.sddm.enable = true;
-
-  # Assurer que Plymouth est utilisé avec SDDM
-  # services.xserver.displayManager.sddm.enablePlymouthIntegration = true;
-
-  # Configuration de base pour Xserver
-  # services.xserver.enable = true;
-  # services.xserver.layout = "fr";
-  # services.xserver.xkbOptions = "eurosign:e";
-
-  # Option pour le chargeur de démarrage, GRUB dans cet exemple
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.version = 2;
-  # boot.loader.grub.gfxmode = "auto";
-  # boot.loader.grub.gfxpayloadLinux = "keep";
-
-  # Définir un fond pour GRUB (facultatif)
-  # boot.loader.grub.background = "/path/to/your/background.png";  # Assurez-vous que ce chemin est correct
-
-  let
-    adi1090xPlymouthThemes = pkgs.adi1090x-plymouth-themes.override {
-      selected_themes = [ "rings_2" ];
-    };
-  in {
-    # Activer Plymouth
-    boot.plymouth.enable = true;
-    boot.plymouth.theme = "rings_2";
+  boot.plymouth.enable = true;
+  boot.plymouth.theme = "rings_2";
 }
