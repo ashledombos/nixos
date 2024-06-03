@@ -94,6 +94,10 @@
   };
 
   # Activer Plymouth
-  boot.plymouth.enable = true;
-  boot.plymouth.theme = "rings_2";
+  boot.plymouth = {
+    enable = true;
+    theme = "rings_2";
+    themePackages = [ pkgs.adi1090x-plymouth-themes ];
+};
+
 }
