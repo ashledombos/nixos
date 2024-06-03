@@ -104,7 +104,6 @@
   #boot.initrd.systemd.services.plymouth-start.wantedBy = [ "initrd.target" ];
   boot = {
     kernelParams = [ "quiet" "splash" ];
-    plymouth.enable = true;
     consoleLogLevel = 0;
     initrd.verbose = false;
   };
