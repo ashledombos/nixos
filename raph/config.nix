@@ -98,8 +98,14 @@
     theme = "rings_2";
     themePackages = [ pkgs.adi1090x-plymouth-themes ];
   };
-  boot.initrd.kernelModules = [ "fbcon" "vesa_fbcon" ];
-  boot.initrd.systemd.enable = true;
-  boot.initrd.systemd.services.plymouth-start.enable = true;
-  boot.initrd.systemd.services.plymouth-start.wantedBy = [ "initrd.target" ];
+  #boot.initrd.kernelModules = [ "fbcon" "vesa_fbcon" ];
+  #boot.initrd.systemd.enable = true;
+  #boot.initrd.systemd.services.plymouth-start.enable = true;
+  #boot.initrd.systemd.services.plymouth-start.wantedBy = [ "initrd.target" ];
+  boot = {
+    kernelParams = [ "quiet" "splash" ];
+    plymouth.enable = true;
+    consoleLogLevel = 0;
+    initrd.verbose = false;
+  };
 }
