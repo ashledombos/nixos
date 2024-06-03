@@ -95,5 +95,5 @@
 
   # Activer Plymouth
   boot.plymouth.enable = true;
-  # boot.plymouth.theme = "Rings 2";
+  boot.plymouth.theme = "rings_2";
 }
