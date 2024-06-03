@@ -2,8 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
-    gimp
-    vlc
+    git
+    kdePackages.discover
+    adi1090x-plymouth-themes
   ];
   # Configuration de SDDM
   services.displayManager.sddm = {
