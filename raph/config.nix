@@ -115,7 +115,17 @@
 
   boot.plymouth = {
     enable = true;
-    theme = "adi1090x-rings2";  # Assurez-vous que le nom du thème est correct
+  # theme = "adi1090x-rings2";  # Assurez-vous que le nom du thème est correct
   #  themePackages = with pkgs; [ plymouth-theme-solar ];  # Assurez-vous que le paquet est correctement nommé
   };
+
+  # Installer les thèmes Plymouth spécifiques
+  environment.systemPackages = with pkgs; [
+    (adi1090x-plymouth-themes.override {
+      selected_themes = [ "Rings2" ]; # Spécifiez seulement le thème Rings 2
+    })
+  ];
+
+  # Configurer le thème Plymouth par défaut
+  boot.plymouth.theme = "Rings2";
 }
