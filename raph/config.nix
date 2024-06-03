@@ -91,13 +91,13 @@
   boot.plymouth.enable = true;
 
   # Choisir un thème pour Plymouth
-  boot.plymouth.theme = "fade-in";  # Choisir parmi d'autres thèmes disponibles
+  # boot.plymouth.theme = "fade-in";  # Choisir parmi d'autres thèmes disponibles
 
   # Configurer SDDM avec Plymouth
-  services.xserver.displayManager.sddm.enable = true;
+  # services.xserver.displayManager.sddm.enable = true;
 
   # Assurer que Plymouth est utilisé avec SDDM
-  services.xserver.displayManager.sddm.enablePlymouthIntegration = true;
+  # services.xserver.displayManager.sddm.enablePlymouthIntegration = true;
 
   # Configuration de base pour Xserver
   # services.xserver.enable = true;
