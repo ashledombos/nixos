@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
-
+  environment.systemPackages = with pkgs; [
+    gimp
+    vlc
+  ];
 #let
 #  adi1090xPlymouthThemes = pkgs.adi1090x-plymouth-themes.override {
 #    selected_themes = [ "rings_2" ];
