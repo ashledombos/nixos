@@ -113,4 +113,10 @@
   # Définir un fond pour GRUB (facultatif)
   # boot.loader.grub.background = "/path/to/your/background.png";  # Assurez-vous que ce chemin est correct
 
+  boot.plymouth = {
+    enable = true;
+    theme = "solar";  # Assurez-vous que le nom du thème est correct
+    themePackages = with pkgs; [ plymouth-theme-solar ];  # Assurez-vous que le paquet est correctement nommé
+  };
+
 }
