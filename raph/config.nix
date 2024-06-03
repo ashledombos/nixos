@@ -88,7 +88,7 @@
   };
 
   # Activer Plymouth
-  boot.plymouth.enable = true;
+  # boot.plymouth.enable = true;
 
   # Choisir un thème pour Plymouth
   # boot.plymouth.theme = "fade-in";  # Choisir parmi d'autres thèmes disponibles
