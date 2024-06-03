@@ -113,19 +113,15 @@
   # Définir un fond pour GRUB (facultatif)
   # boot.loader.grub.background = "/path/to/your/background.png";  # Assurez-vous que ce chemin est correct
 
-  boot.plymouth = {
-    enable = true;
-  # theme = "adi1090x-rings2";  # Assurez-vous que le nom du thème est correct
-  #  themePackages = with pkgs; [ plymouth-theme-solar ];  # Assurez-vous que le paquet est correctement nommé
-  };
+  boot.plymouth.enable = true;
 
   # Installer les thèmes Plymouth spécifiques
   environment.systemPackages = with pkgs; [
     (adi1090x-plymouth-themes.override {
-      selected_themes = [ "Rings2" ]; # Spécifiez seulement le thème Rings 2
+      selected_themes = [ "rings_2" ]; 
     })
   ];
 
   # Configurer le thème Plymouth par défaut
-  boot.plymouth.theme = "Rings2";
+  boot.plymouth.theme = "rings_2";
 }
