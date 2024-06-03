@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 
+
+let
+  adi1090xPlymouthThemes = pkgs.adi1090x-plymouth-themes.override {
+    selected_themes = [ "rings_2" ];
+  };
+in
 {
   # Configuration de SDDM
   services.displayManager.sddm = {
@@ -89,11 +95,6 @@
 
 }
 
-let
-  adi1090xPlymouthThemes = pkgs.adi1090x-plymouth-themes.override {
-    selected_themes = [ "rings_2" ];
-  };
-in {
   # Activer Plymouth
   boot.plymouth.enable = true;
   boot.plymouth.theme = "rings_2";
