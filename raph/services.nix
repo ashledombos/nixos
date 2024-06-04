@@ -5,6 +5,7 @@
  # Active le nettoyage automatique du store Nix
   systemd.services.nix-gc-optimize = {
     description = "Nix Garbage Collect and Store Optimization";
+    wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "oneshot";
       ExecStart = pkgs.writeScript "nix-maintenance" ''
@@ -15,7 +16,6 @@
       User = "root";
       Group = "root";
     };
-    wantedBy = [ "multi-user.target" ];
   };
 
   systemd.timers.nix-gc-optimize = {
@@ -27,6 +27,31 @@
     };
   };
 
+  systemd.services.git-pull = {
+    description = "Git repository auto-update";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = pkgs.writeScript "git-pull" ''
+        #!/bin/sh
+        cd "/etc/nixos/git/nixos"
+        git fetch --dry-run 2>&1 | grep -q -v 'up to date' && git pull || echo "No changes to pull."
+      '';
+      User = "root";
+      Group = "root";
+    };
+  };
+
+  systemd.timers.git-pull = {
+    description = "Periodically pull git repository";
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "hourly";
+      Persistent = true;
+    };
+  };
+}
 #  systemd.services.nix-gc-optimize = {
 #    description = "Nix Garbage Collect and Store Optimization";
 #    serviceConfig = {
@@ -50,27 +75,3 @@
 #    };
 #    wantedBy = [ "timers.target" ];
 #  };
-
-  systemd.services.git-pull = {
-    description = "Git repository auto-update";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.writeScriptBin "git-pull" ''
-        #!/bin/sh
-        cd "/etc/nixos/git/nixos"
-        git fetch --dry-run 2>&1 | grep -q -v 'up to date' && git pull || echo "No changes to pull."
-      ''}";
-    };
-  };
-
-  systemd.timers.git-pull = {
-    description = "Periodically pull git repository";
-    wantedBy = [ "timers.target" ];
-    timerConfig = {
-      OnCalendar = "hourly";
-      Persistent = true;
-    };
-  };
-}
