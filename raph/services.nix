@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
  # Active le nettoyage automatique du store Nix
   systemd.services.nix-gc-optimize = {
     description = "Nix Garbage Collect and Store Optimization";
