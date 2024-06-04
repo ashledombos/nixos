@@ -33,7 +33,7 @@
       Type = "oneshot";
       ExecStart = "${pkgs.writeScriptBin "git-pull" ''
         #!/bin/sh
-        cd "/path/to/your/git/repo"
+        cd "/etc/nixos/git/nixos"
         git fetch --dry-run 2>&1 | grep -q -v 'up to date' && git pull || echo "No changes to pull."
       ''}";
     };
