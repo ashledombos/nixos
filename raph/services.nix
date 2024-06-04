@@ -35,7 +35,7 @@
       ExecStart = pkgs.writeScript "git-pull" ''
         #!/bin/sh
         cd "/etc/nixos/git/nixos"
-        git fetch --dry-run 2>&1 | grep -q -v 'up to date' && git pull || echo "No changes to pull."
+        ${pkgs.nix}/bin/git fetch --dry-run 2>&1 | grep -q -v 'up to date' && ${pkgs.nix}/git pull || echo "No changes to pull."
       '';
       User = "root";
       Group = "root";
