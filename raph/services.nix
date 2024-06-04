@@ -32,11 +32,12 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = pkgs.writeScript "git-pull" ''
+      ExecStart = "${pkgs.writeScriptBin "git-pull" ''
         #!/bin/sh
+        export PATH=${pkgs.git}/bin:$PATH
         cd "/etc/nixos/git/nixos"
-        ${pkgs.nix}/bin/git fetch --dry-run 2>&1 | grep -q -v 'up to date' && ${pkgs.nix}/git pull || echo "No changes to pull."
-      '';
+        git fetch --dry-run 2>&1 | grep -q -v 'up to date' && git pull || echo "No changes to pull."
+      ''}";
       User = "root";
       Group = "root";
     };
