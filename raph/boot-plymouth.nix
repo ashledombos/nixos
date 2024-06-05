@@ -5,7 +5,7 @@
 {
   # Masquer les messages de démarrage et n'afficher que l'écran Plymouth
   boot.kernelParams = [ "quiet" ];
-
+  boot.loader.timeout = 0;
   # Désactiver l'éditeur de menu systemd-boot pour masquer le menu de sélection des générations
   # boot.loader.systemd-boot.editor = false;
   # boot.initrd.kernelModules = [ "intel_agp" ];
