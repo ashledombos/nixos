@@ -1,6 +1,6 @@
 # Fichier : boot-plymouth.nix
 
-{ pkgs, config, ... }:
+{ pkgs, config, libs, ... }:
 
 {
   # Masquer les messages de démarrage et n'afficher que l'écran Plymouth
@@ -17,6 +17,7 @@
   #};
   boot.plymouth = {
     enable = true;
+    debug = true;
     theme = "rings";
     themePackages = with pkgs; [
       (adi1090x-plymouth-themes.override {
