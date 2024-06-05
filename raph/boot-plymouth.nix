@@ -7,7 +7,7 @@
   # boot.kernelParams = [ "quiet" ];
 
   # Désactiver l'éditeur de menu systemd-boot pour masquer le menu de sélection des générations
-  # boot.loader.systemd-boot.editor = false;
+  boot.loader.systemd-boot.editor = false;
 
   # Activer Plymouth avec le thème "rings"
   #boot.plymouth = {
