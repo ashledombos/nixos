@@ -7,7 +7,9 @@
   # boot.kernelParams = [ "quiet" ];
 
   # Désactiver l'éditeur de menu systemd-boot pour masquer le menu de sélection des générations
-  boot.loader.systemd-boot.editor = false;
+  # boot.loader.systemd-boot.editor = false;
+  boot.initrd.kernelModules = [ "intel_agp" ];
+  boot.kernelParams = [ "vga=795" "splash=verbose" ];
 
   # Activer Plymouth avec le thème "rings"
   #boot.plymouth = {
@@ -18,7 +20,7 @@
   boot.plymouth = {
     enable = true;
     # debug = true;
-    theme = "spinfinity";
+    theme = "fade-in";
     # themePackages = with pkgs; [
     #  (adi1090x-plymouth-themes.override {
     #    selected_themes = [ "rings" ];
