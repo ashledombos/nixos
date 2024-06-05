@@ -5,7 +5,6 @@
   environment.systemPackages = with pkgs; [
     git
     kdePackages.discover
-    adi1090x-plymouth-themes
   ];
 
   # Configuration de l'Écran de Connexion SDDM
