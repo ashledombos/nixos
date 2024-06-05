@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
-  imports = [
-    ./services.nix
-  ];
-
   # Paquets Système de Base
   environment.systemPackages = with pkgs; [
     git
