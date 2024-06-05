@@ -9,5 +9,5 @@
   ];
   boot.initrd.availableKernelModules = [ "i915" ];
   boot.kernelModules = [ "i915" ];
-  boot.earlyModuleLoads = [ "i915" ];
+  # boot.earlyModuleLoads = [ "i915" ];
 }
