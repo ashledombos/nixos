@@ -20,7 +20,7 @@
   boot.plymouth = {
     enable = true;
     # debug = true;
-    theme = "spinner";
+    theme = "bgrt";
     # themePackages = with pkgs; [
     #  (adi1090x-plymouth-themes.override {
     #    selected_themes = [ "rings" ];
