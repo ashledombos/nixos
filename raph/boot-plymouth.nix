@@ -17,11 +17,6 @@
   #  theme = "rings_2";
   #  themePackages = [ adi1090x-plymouth-themes ];
   #};
-  boot.loader.grub = {
-    enable = true;
-    version = 2;
-    #extraConfig = "resume=UUID=<UUID du swap> resume_offset=<Offset du swap>";
-  };
 
   boot.plymouth = {
     enable = true;
