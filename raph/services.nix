@@ -5,7 +5,7 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = true;
-    dates = "03:00:00"; // Pour la mise à jour et le redémarrage
+    dates = "03:00:00"; 
     #fixedRandomDelay = true;
     #operation = "boot";
   };
