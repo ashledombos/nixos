@@ -3,6 +3,8 @@
 {
   powerManagement.enable = true;
 
+
+  powerManagement.enable = false;
   services.tlp = {
     enable = true;
     settings = {
