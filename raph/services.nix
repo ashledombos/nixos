@@ -1,7 +1,16 @@
 { config, pkgs, ... }:
 
 {
- # Active le nettoyage automatique du store Nix
+# mise à jour
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
+    #dates = "Sat *-*-* 03:00:00"; // Pour la mise à jour et le redémarrage
+    #fixedRandomDelay = true;
+    #operation = "boot";
+  };
+
+# Active le nettoyage automatique du store Nix
   systemd.services.nix-gc-optimize = {
     description = "Nix Garbage Collect and Store Optimization";
     wantedBy = [ "multi-user.target" ];
