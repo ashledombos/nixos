@@ -14,7 +14,7 @@
   # boot.loader.systemd-boot.editor = false;
   # boot.initrd.kernelModules = [ "intel_agp" ];
   # boot.kernelParams = [ "vga=795" "splash=verbose" ];
-# boot.initrd.verbose = false;
+  boot.initrd.verbose = false;
 
   # Activer Plymouth avec le thème "rings"
   #boot.plymouth = {
