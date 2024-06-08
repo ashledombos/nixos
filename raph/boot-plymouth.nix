@@ -23,6 +23,8 @@
   #  themePackages = [ adi1090x-plymouth-themes ];
   #};
 
+  boot.initrd.systemd.enable = true;
+
   boot.plymouth = {
     enable = true;
     # debug = true;
