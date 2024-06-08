@@ -4,7 +4,11 @@
 
 {
   # Masquer les messages de démarrage et n'afficher que l'écran Plymouth
-  boot.kernelParams = [ "quiet" ];
+  boot.kernelParams = [
+    "quiet"
+    "loglevel=3" # Réduire la verbosité des messages
+    "vt.global_cursor_default=0" # Désactiver le curseur texte
+  ];
   boot.loader.timeout = 0;
   # Désactiver l'éditeur de menu systemd-boot pour masquer le menu de sélection des générations
   # boot.loader.systemd-boot.editor = false;
