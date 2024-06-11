@@ -13,7 +13,6 @@
   # boot.loader.grub.efiSupport = true;
   # boot.loader.grub.device = "nodev"; # Ou périph de démarrage
 
-  {
   # Paquets 
   environment.systemPackages = with pkgs; [
     texliveFull
