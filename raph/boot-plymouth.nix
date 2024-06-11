@@ -8,6 +8,7 @@
     "quiet"
     "loglevel=3" # Réduire la verbosité des messages
     "vt.global_cursor_default=0" # Désactiver le curseur texte
+    "nosgx"
   ];
   boot.loader.timeout = 0;
   # Désactiver l'éditeur de menu systemd-boot pour masquer le menu de sélection des générations
