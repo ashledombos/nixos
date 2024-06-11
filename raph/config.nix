@@ -21,7 +21,7 @@
   services.packagekit.enable = true;
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
 
-  boot.cleanTmpFiles = true;
+# boot.cleanTmpFiles = true;
 
 # Configuration de Plymouth pour l'Écran de Démarrage
   # boot.plymouth = {
