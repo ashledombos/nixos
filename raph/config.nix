@@ -5,6 +5,7 @@
   environment.systemPackages = with pkgs; [
     git
     kdePackages.discover
+    scanpage
   ];
 
   # Configuration de l'Écran de Connexion SDDM
