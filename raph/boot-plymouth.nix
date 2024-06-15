@@ -6,7 +6,7 @@
   # Masquer les messages de démarrage et n'afficher que l'écran Plymouth
   boot.kernelParams = [
     "quiet"
-    "loglevel=3" # Réduire la verbosité des messages
+    "loglevel=0" # Réduire la verbosité des messages
     "vt.global_cursor_default=0" # Désactiver le curseur texte
     "nosgx"
   ];
