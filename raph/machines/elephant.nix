@@ -6,6 +6,7 @@
     ../services.nix
     ../boot-plymouth.nix
     ../portable.nix
+    ../tailscale.nix
   ];
 
 #  # Paramètres du noyau nécessaires pour l'hibernation
