@@ -9,8 +9,6 @@
   # Activer le service Tailscale
   services.tailscale.enable = true;
 
-  };
-
   # Configurer le pare-feu
   networking.firewall = {
     trustedInterfaces = [ "tailscale0" ];
