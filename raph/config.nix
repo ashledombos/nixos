@@ -30,6 +30,9 @@
 
 # boot.cleanTmpFiles = true;
 
+  # Configurer le pare-feu
+  networking.firewall.enable = true;
+
 # Configuration de Plymouth pour l'Écran de Démarrage
   # boot.plymouth = {
   # enable = true;
