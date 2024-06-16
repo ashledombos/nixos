@@ -6,6 +6,7 @@
     git
     kdePackages.discover
     skanlite
+    rustdesk-flutter
   ];
 
   # Configuration de l'Écran de Connexion SDDM
