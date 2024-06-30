@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+
+  environment.systemPackages = with pkgs; [
+    docker-compose
+    gnumake
+  ];
+
   hardware.opengl = {
     enable = true;
     driSupport = true;
