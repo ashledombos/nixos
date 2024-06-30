@@ -7,7 +7,7 @@
     libinput
     xorg.libXau
     xorg.libXdmcp
-    libX11
+ #   libX11
     libvdpau-va-gl
     intel-media-driver
     vaapiIntel
