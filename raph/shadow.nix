@@ -24,11 +24,21 @@
   # Configuration des drivers OpenGL et VAAPI
   hardware.opengl = {
     enable = true;
+    driSupport = true;
     extraPackages = with pkgs; [
       vaapiIntel
       vaapiVdpau
       libvdpau-va-gl
       intel-media-driver
+      intel-compute-runtime
+      intel-ocl
+      intel-vaapi-driver
+      libva-utils
+      vdpauinfo
     ];
   };
+
+  environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
+
+
 }
