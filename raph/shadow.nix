@@ -11,7 +11,14 @@
     libvdpau-va-gl
     intel-media-driver
     vaapiIntel
-    kwallet
+    heroic
+    lutris
+    protontricks
+    protonup-qt
+    wine-staging
+    wineWowPackages.stagingFull
+    winetricks
+    xivlauncher
   ];
 
   # Configuration des drivers OpenGL et VAAPI
