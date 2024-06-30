@@ -19,6 +19,7 @@
 
   # activation de kde wallet
   security.pam.services.sddm.enableKwallet = true;
+  security.pam.services.login.enableKwallet = true;
 
   # Support des Applications et Mises à Jour
   services.fwupd.enable = true;
