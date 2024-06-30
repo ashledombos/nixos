@@ -7,7 +7,6 @@
     kdePackages.discover
     skanlite
     rustdesk-flutter
-    gnumake
     vim
     inxi
   ];
