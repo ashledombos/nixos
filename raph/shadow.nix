@@ -11,11 +11,7 @@
     libvdpau-va-gl
     intel-media-driver
     vaapiIntel
-    kdeApplications.kwallet
-    kdeFrameworks.kwallet
-    kdeFrameworks.kinit
-    kdeFrameworks.kcoreaddons
-    kdeFrameworks.knotifications
+    kwallet
   ];
 
   # Configuration des drivers OpenGL et VAAPI
