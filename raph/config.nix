@@ -7,6 +7,9 @@
     kdePackages.discover
     skanlite
     rustdesk-flutter
+    make
+    vim
+    inxi
   ];
 
   # Configuration de l'Écran de Connexion SDDM
