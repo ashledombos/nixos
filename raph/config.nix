@@ -17,6 +17,9 @@
     };
   };
 
+  # activation de kde wallet
+  security.pam.services.sddm.enableKwallet = true;
+
   # Support des Applications et Mises à Jour
   services.fwupd.enable = true;
   services.flatpak.enable = true;
