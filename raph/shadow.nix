@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    docker
-    docker-compose
-    xorg.xhost
-  ];
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+  }
 
-  services.docker.enable = true;
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "raphael" ];
+
 }
