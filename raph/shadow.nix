@@ -40,5 +40,14 @@
 
   environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
 
+  services.kwalletd6 = {
+    enable = true;
+    settings = {
+      Server = {
+        socket = "/run/user/$UID/kwallet"; # Chemin où le socket sera créé
+      };
+    };
+  };
+
 
 }
