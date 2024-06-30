@@ -34,6 +34,13 @@
   # Configurer le pare-feu
   networking.firewall.enable = true;
 
+# Prise en charge des programmes appimage
+
+programs.appimage = {
+  enable = true;
+  binfmt = true;
+};
+
 # Configuration de Plymouth pour l'Écran de Démarrage
   # boot.plymouth = {
   # enable = true;
