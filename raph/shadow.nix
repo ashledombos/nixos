@@ -16,7 +16,4 @@
   virtualisation.docker.enable = true;
   users.extraGroups.docker.members = [ "raphael" ];
 
-  # Ajouter des services Docker et Docker Compose
-  services.docker.enable = true;
-
 }
