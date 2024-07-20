@@ -27,7 +27,10 @@
   services.fwupd.enable = true;
   services.flatpak.enable = true;
   services.packagekit.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.kdePackages.xdg-desktop-portal-kde
+  ];
 
   services.avahi = {
     enable = true;
