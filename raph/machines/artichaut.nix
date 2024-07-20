@@ -18,6 +18,7 @@
   # Paquets 
   environment.systemPackages = with pkgs; [
     texliveFull
+    jdk
   ];
 
 }
