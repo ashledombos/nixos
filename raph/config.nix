@@ -9,6 +9,7 @@
     rustdesk-flutter
     vim
     inxi
+    wget
   ];
 
   # Configuration de l'Écran de Connexion SDDM
