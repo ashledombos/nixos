@@ -7,6 +7,7 @@
     ../boot-plymouth.nix
     ../tailscale.nix
     ../shadow.nix
+    ../vscodium.nix
     # ../portable.nix
   ];
   # boot.loader.systemd-boot.enable = false;
