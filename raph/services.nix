@@ -6,7 +6,7 @@
   # Mise à jour automatique du système
   system.autoUpgrade = {
     enable = true;
-    allowReboot = true;
+    # allowReboot = true;
     dates = "Mon *-*-* 03:00:00"; # Exécute les mises à jour chaque lundi à 3h00
     channel = "https://nixos.org/channels/nixos-24.05";
   };
