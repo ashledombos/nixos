@@ -11,6 +11,10 @@
     # ../portable.nix
   ];
 
+
+  # networking.hostName = "artichaut"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
   # boot.loader.systemd-boot.enable = false;
   # boot.loader.efi.canTouchEfiVariables = true;
   # boot.loader.grub.enable = true;
