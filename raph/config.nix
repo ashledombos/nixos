@@ -51,14 +51,4 @@ programs.appimage = {
   binfmt = true;
 };
 
-# Configuration de Plymouth pour l'Écran de Démarrage
-  # boot.plymouth = {
-  # enable = true;
-  #  theme = "rings";
-  #  themePackages = with pkgs; [
-  #    (adi1090x-plymouth-themes.override {
-  #      selected_themes = [ "rings" ];
-  #    })
-  #  ];
-  #};
 }
