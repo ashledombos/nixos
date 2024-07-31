@@ -3,6 +3,10 @@
 
 {
 
+  # Activation du bureau KDE Plasma.
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
+
   security.pam.services.sddm.enableKwallet = true;
   security.pam.services.login.enableKwallet = true;
 
