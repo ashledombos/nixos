@@ -5,9 +5,9 @@
     ../config.nix
     ../services.nix
     ../boot-plymouth.nix
-    ../tailscale.nix
-    ../shadow.nix
-    ../vscodium.nix
+    ../paquets/tailscale.nix
+    ../paquets/shadow.nix
+    ../paquets/vscodium.nix
     # ../portable.nix
   ];
 
