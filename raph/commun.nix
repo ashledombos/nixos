@@ -1,14 +1,34 @@
-# Bootloader.
+# Configuration générique pour les postes de bureau ou portables
+# en français et avec interface graphique
+# Pour l’instant deux environnements de bureau sont pris en charge
+# KDE Plasma et Deepin OS
+
+
+{ pkgs, config, ... }:
+
+{
+
+  # Import des fichiers communs
+  imports = [
+    ../services.nix
+    ../boot-plymouth.nix
+    ../tailscale.nix
+  ];
+
+  # Gestion du démarrage.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Enable networking
+  # Activer networkmanager pour permettre à l’utilisateur de gérer son gestionnaire de réseau
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  # Activer les services de géolocalisation (pour les déplacements à l’étranger ou outremer)
+  services.geoclue2.enable = true;
+
+  # Activer la détection automatique du fuseau horaire
+  services.localtime.enable = true;
+
+  # Par défaut heure de la métropole.
   time.timeZone = "Europe/Paris";
 
   # Select internationalisation properties.
@@ -30,23 +50,13 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "fr";
-    xkbVariant = "bepo_afnor";
-  };
-
   # Configure console keymap
   console.keyMap = "fr";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
+  # Activer le son avec pipewire et non pulseaudio.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -56,54 +66,16 @@
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nomutilisateur = {
-    isNormalUser = true;
-    description = "Nom";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
-    ];
-  };
-
-  # Install firefox.
-  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  ];
+  # Services à activer
+  services.openssh.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
+  # Ouvrir des ports dans le pare-feu
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  
+}
