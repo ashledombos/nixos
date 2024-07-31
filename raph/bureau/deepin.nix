@@ -8,6 +8,7 @@
   # Gestionnaire de connexion SDDM avec activation du pavé numérique
   services.displayManager.sddm = {
     enable = true;
+    theme = "Elegant";
     settings = {
       General = {
         GreeterEnvironment = "LANG=fr_FR.UTF-8";
