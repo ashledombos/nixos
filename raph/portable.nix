@@ -1,3 +1,5 @@
+# configuration des portables 
+
 { config, pkgs, ... }:
 
 {
