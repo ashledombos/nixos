@@ -11,15 +11,13 @@
     # ../portable.nix
   ];
 
+  ## Configuration de la disposition du clavier par défaut
+  # services.xserver = {
+  #  layout = "fr";
+  #  xkbVariant = "bepo_afnor";
+  #};
 
-  # networking.hostName = "artichaut"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # boot.loader.systemd-boot.enable = false;
-  # boot.loader.efi.canTouchEfiVariables = true;
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.device = "nodev"; # Ou périph de démarrage
+  # networking.hostName = "artichaut"; # Definir le nom d’hôte.
 
   # Paquets 
   environment.systemPackages = with pkgs; [
