@@ -1,3 +1,5 @@
+# Premiére configuration conservée car quelques postes pointent encore dessus
+
 { config, pkgs, ... }:
 
 {
