@@ -3,6 +3,7 @@
 { config, pkgs, ... }:
 
 {
+  # Gestion de l’énergie
   powerManagement.enable = true;
   services.power-profiles-daemon.enable = false;
 
