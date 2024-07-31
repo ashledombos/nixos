@@ -1,4 +1,4 @@
-# Fichier : boot-plymouth.nix
+# Démarrage esthétique de l’ordinateur avec Plymouth (à améliorer)
 
 { pkgs, config, ... }:
 
