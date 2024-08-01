@@ -75,15 +75,6 @@
   # Services à activer
   services.openssh.enable = true;
 
-  # Support des Applications et Mises à Jour
-  services.fwupd.enable = true;
-  services.flatpak.enable = true;
-  services.packagekit.enable = true;
-  xdg.portal.extraPortals = [
-    pkgs.xdg-desktop-portal-gtk
-    pkgs.kdePackages.xdg-desktop-portal-kde
-  ];
-
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -109,5 +100,25 @@
   environment.shellAliases = {
     nix-git-rebuild = "(cd /etc/nixos/git/nixos && sudo git pull && sudo nixos-rebuild switch) && cd -";
   };
+
+  # Support des mises à jour firmware
+  services.fwupd.enable = true;
+
+  # Activer Flatpak
+  services.flatpak.enable = true;
   
+  # Ajouter le dépôt Flathub et installer/mettre à jour quelques paquets
+  system.activationScripts = {
+    setupFlathubAndInstallWarehouse = ''
+      # Ajouter le dépôt Flathub
+      /run/current-system/sw/bin/flatpak remote-add --system --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+  
+      # Installer ou mettre à jour des paquets flatpak
+      /run/current-system/sw/bin/flatpak install --or-update --non-interactive flathub \
+        org.gnome.Warehouse \
+        org.mozilla.firefox
+    '';
+  };
+
+
 }
