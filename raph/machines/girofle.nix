@@ -8,7 +8,7 @@
     ../paquets/tailscale.nix
     ../paquets/shadow.nix
     #../paquets/vscodium.nix
-    ./portable.nix
+    ../portable.nix
   ];
 
   # Configuration de la disposition du clavier par défaut
