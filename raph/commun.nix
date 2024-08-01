@@ -78,5 +78,10 @@
   # Ouvrir des ports dans le pare-feu
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
+
+  # Créer une commande de mise à jour git et rebuild
+  environment.shellAliases = {
+    nix-git-rebuild = "(cd /etc/nixos/git && sudo git pull && sudo nixos-rebuild switch) && cd -";
+  };
   
 }
