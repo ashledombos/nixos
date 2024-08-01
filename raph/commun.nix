@@ -12,7 +12,7 @@
   imports = [
     ./services.nix
     ./boot-plymouth.nix
-    ./tailscale.nix
+    paquets/tailscale.nix
     paquets/paquets-communs.nix
   ];
 
