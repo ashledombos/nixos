@@ -114,7 +114,7 @@
       /run/current-system/sw/bin/flatpak remote-add --system --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
   
       # Installer ou mettre à jour des paquets flatpak
-      /run/current-system/sw/bin/flatpak install --or-update --non-interactive flathub \
+      /run/current-system/sw/bin/flatpak install --or-update --noninteractive flathub \
         org.gnome.Warehouse \
         org.mozilla.firefox
     '';
