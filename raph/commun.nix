@@ -75,6 +75,32 @@
   # Services à activer
   services.openssh.enable = true;
 
+  # Support des Applications et Mises à Jour
+  services.fwupd.enable = true;
+  services.flatpak.enable = true;
+  services.packagekit.enable = true;
+  xdg.portal.extraPortals = [
+    pkgs.xdg-desktop-portal-gtk
+    pkgs.kdePackages.xdg-desktop-portal-kde
+  ];
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  # boot.cleanTmpFiles = true;
+
+  # Configurer le pare-feu
+  networking.firewall.enable = true;
+
+  # Prise en charge des programmes appimage
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   # Ouvrir des ports dans le pare-feu
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
