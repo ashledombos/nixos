@@ -115,7 +115,7 @@
   
       # Installer ou mettre à jour des paquets flatpak
       /run/current-system/sw/bin/flatpak install --or-update --noninteractive flathub \
-        org.gnome.Warehouse \
+        io.github.flattool.Warehouse \
         org.mozilla.firefox
     '';
   };
