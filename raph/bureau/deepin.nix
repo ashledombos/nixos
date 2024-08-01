@@ -22,23 +22,4 @@
       elegant-sddm
   ];
 
-  system.activationScripts = {
-    flathub = ''
-      /run/current-system/sw/bin/flatpak remote-add --system --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
-
-    # Ajouter Flathub et installer Warehouse si nécessaire
-    system.activationScripts = {
-      setupFlathubAndInstallWarehouse = ''
-        # Ajouter le dépôt Flathub
-        /run/current-system/sw/bin/flatpak remote-add --system --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-  
-        # Installer l'application Warehouse si elle n'est pas déjà installée
-        if ! flatpak list | grep -q org.gnome.Warehouse; then
-          /run/current-system/sw/bin/flatpak install -y flathub org.gnome.Warehouse
-        fi
-      '';
-    };
-
 }
