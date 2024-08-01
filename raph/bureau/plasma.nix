@@ -23,6 +23,10 @@
   # Activation de packageKit pour Discover
   services.packagekit.enable = true;
 
+  programs.firefox.package = pkgs.firefox.override {
+    cfg.enablePlasmaBrowserIntegration = true;
+  };
+
   # Portail GTK pour Firefox en mode Flatpak
   xdg.portal.extraPortals = [
     pkgs.kdePackages.xdg-desktop-portal-gtk
@@ -32,6 +36,7 @@
   environment.systemPackages = with pkgs; [
     kdePackages.discover
     skanlite
+    plasma-browser-integration
   ];
 
 }
