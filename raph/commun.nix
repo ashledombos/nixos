@@ -13,6 +13,7 @@
     ./services.nix
     ./boot-plymouth.nix
     paquets/tailscale.nix
+    paquets/firefox.nix
     paquets/paquets-communs.nix
   ];
 
