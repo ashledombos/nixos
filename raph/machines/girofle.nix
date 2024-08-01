@@ -3,6 +3,7 @@
 {
   imports = [
     ../commun.nix
+    ../bureau/deepin.nix
     ../paquets/shadow.nix
     #../paquets/vscodium.nix
     ../portable.nix
