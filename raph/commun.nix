@@ -81,7 +81,7 @@
 
   # Créer une commande de mise à jour git et rebuild
   environment.shellAliases = {
-    nix-git-rebuild = "(cd /etc/nixos/git && sudo git pull && sudo nixos-rebuild switch) && cd -";
+    nix-git-rebuild = "(cd /etc/nixos/git/nixos && sudo git pull && sudo nixos-rebuild switch) && cd -";
   };
   
 }
