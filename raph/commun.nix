@@ -10,9 +10,9 @@
 
   # Import des fichiers communs
   imports = [
-    services.nix
-    boot-plymouth.nix
-    tailscale.nix
+    ./services.nix
+    ./boot-plymouth.nix
+    ./tailscale.nix
     paquets/paquets-communs.nix
   ];
 
