@@ -3,7 +3,7 @@
 
 {
   # Activation du bureau DDE de Deepin
-  services.desktopManager.deepin.enable = true;
+  services.xserver.desktopManager.deepin.enable = true;
 
   # Gestionnaire de connexion SDDM avec activation du pavé numérique
   services.displayManager.sddm = {
