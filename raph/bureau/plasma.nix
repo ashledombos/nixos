@@ -20,11 +20,15 @@
     };
   };
 
+  # Activation de packageKit pour Discover
+  services.packagekit.enable = true;
+
+  # Portail GTK pour Firefox en mode Flatpak
   xdg.portal.extraPortals = [
-    pkgs.kdePackages.xdg-desktop-portal-kde
+    pkgs.kdePackages.xdg-desktop-portal-gtk
   ];
 
-  # Paquets KDE Plasma
+  # Paquets KDE Plasma (non disponibles dans Flathub)
   environment.systemPackages = with pkgs; [
     kdePackages.discover
     skanlite
