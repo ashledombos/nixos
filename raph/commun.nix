@@ -27,7 +27,7 @@
   services.geoclue2.enable = true;
 
   # Activer la détection automatique du fuseau horaire
-  services.localtime.enable = true;
+  services.localtimed.enable = true;
 
   # Par défaut heure de la métropole.
   time.timeZone = "Europe/Paris";
