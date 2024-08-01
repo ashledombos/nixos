@@ -2,10 +2,7 @@
 
 {
   imports = [
-    ../config.nix
-    ../services.nix
-    ../boot-plymouth.nix
-    ../paquets/tailscale.nix
+    ../commun.nix
     ../paquets/shadow.nix
     #../paquets/vscodium.nix
     ../portable.nix
