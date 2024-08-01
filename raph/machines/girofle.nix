@@ -10,9 +10,9 @@
   ];
 
   # Configuration de la disposition du clavier par défaut
-   services.xserver = {
+   services.xserver.xkb = {
     layout = "fr";
-    xkbVariant = "afnor";
+    variant = "afnor";
   };
 
   networking.hostName = "girofle"; # Definir le nom d’hôte.
