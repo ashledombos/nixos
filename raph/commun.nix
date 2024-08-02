@@ -17,8 +17,8 @@
   ];
 
   # Gestion du démarrage.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
 
   # Activer networkmanager pour permettre à l’utilisateur de gérer son gestionnaire de réseau
   networking.networkmanager.enable = true;
