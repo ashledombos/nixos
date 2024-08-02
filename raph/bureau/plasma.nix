@@ -29,7 +29,7 @@
 
   # Portail GTK pour Firefox en mode Flatpak
   xdg.portal.extraPortals = [
-    pkgs.kdePackages.xdg-desktop-portal-gtk
+    pkgs.xdg-desktop-portal-gtk
   ];
 
   # Paquets KDE Plasma (non disponibles dans Flathub)
