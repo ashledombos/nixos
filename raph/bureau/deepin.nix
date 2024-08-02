@@ -20,6 +20,7 @@
   # Paquets supplémentaires
   environment.systemPackages = with pkgs; [
       elegant-sddm
+      gnome.gnome-software
   ];
 
 }
