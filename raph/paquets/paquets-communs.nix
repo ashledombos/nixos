@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     git
     rustdesk-flutter
+    cryfs
     vim
     inxi
     wget
