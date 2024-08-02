@@ -113,12 +113,11 @@
     setupFlathubAndInstallWarehouse = ''
       # Ajouter le dépôt Flathub
       /run/current-system/sw/bin/flatpak remote-add --system --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-  
-    #  # Installer ou mettre à jour des paquets flatpak
-    #  /run/current-system/sw/bin/flatpak install --or-update --noninteractive flathub \
-    #    io.github.flattool.Warehouse \
-    #    org.mozilla.firefox
-    # '';
+      # Installer ou mettre à jour des paquets flatpak
+      /run/current-system/sw/bin/flatpak install --or-update --noninteractive flathub \
+        io.github.flattool.Warehouse \
+        # org.mozilla.firefox
+    '';
   };
 
 }
