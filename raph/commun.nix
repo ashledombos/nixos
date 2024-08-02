@@ -13,6 +13,7 @@
     ./services.nix
     paquets/tailscale.nix
     paquets/firefox.nix
+    paquets/netbird.nix
     paquets/paquets-communs.nix
   ];
 
