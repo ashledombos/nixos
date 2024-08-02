@@ -1,4 +1,4 @@
-# Démarrage esthétique de l’ordinateur avec Plymouth (à améliorer)
+# Démarrage avec GRUB pour les machines anciennes
 
 { pkgs, config, ... }:
 
