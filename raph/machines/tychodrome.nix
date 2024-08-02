@@ -13,10 +13,10 @@
   # Configuration de la disposition du clavier par défaut
    services.xserver.xkb = {
     layout = "fr";
-    variant = "afnor";
+    variant = "";
   };
 
-  networking.hostName = "girofle"; # Definir le nom d’hôte.
+  networking.hostName = "tychodrome"; # Definir le nom d’hôte.
 
   # Paquets 
   environment.systemPackages = with pkgs; [
