@@ -13,6 +13,8 @@
         crashreporterSupport = true;
         # Activation du support de PipeWire
         pipewireSupport = true;
+        # Prise en charge de l’intégration Plasma
+        cfg.enablePlasmaBrowserIntegration = true;
       };
     };
   };
