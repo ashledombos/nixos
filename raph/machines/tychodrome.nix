@@ -5,8 +5,6 @@
     ../commun.nix
     ../amorce/boot-grub.nix
     ../bureau/deepin.nix
-    ../paquets/shadow.nix
-    #../paquets/vscodium.nix
     ../portable.nix
   ];
 
