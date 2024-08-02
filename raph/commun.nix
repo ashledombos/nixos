@@ -1,7 +1,7 @@
 # Configuration générique pour les postes de bureau ou portables
 # en français et avec interface graphique
 # Pour l’instant deux environnements de bureau sont pris en charge
-# KDE Plasma et Deepin OS
+# KDE Plasma et Deepin
 
 
 { pkgs, config, ... }:
