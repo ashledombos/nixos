@@ -2,11 +2,11 @@
 
 {
   imports = [
-    ../config.nix
-    ../services.nix
-    ../boot-plymouth.nix
+    ../commun.nix
+    ../amorce/boot-systemd.nix
+    ../bureau/plasma.nix
+    ../paquets/shadow.nix
     ../portable.nix
-    ../paquets/tailscale.nix
   ];
 
   # Paramètres du noyau nécessaires pour l'hibernation
