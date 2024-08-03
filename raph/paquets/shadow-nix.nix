@@ -1,24 +1,19 @@
 { config, pkgs, ... }:
 
 {
-  # Import the shadow-nix package from the forked repository
-  imports = [
-    (fetchGit {
-      url = "https://github.com/cornerman/shadow-nix";
-      ref = "master";  # Use the latest commit from the main branch
-    } + "/import/system.nix")
+  # Installer les paquets nécessaires pour ShadowPC
+  environment.systemPackages = with pkgs; [
+    libva-utils             # Pour le support de VAAPI
+    libvaIntel              # Pour les pilotes Intel
+    vaapiVdpau              # Pour le support VDPau
+    libvdpau-va-gl          # Pour l'accélération vidéo
+    intel-media-driver      # Pilotes pour les médias Intel
+    gnome-keyring           # Pour la fonctionnalité "Remember Me"
+    # Ajoutez d'autres paquets nécessaires ici si besoin
   ];
 
-  programs.shadow-client = {
-    enable = true;  # Enable the Shadow client
-    channel = "prod";  # Set the channel to use
-  };
-
-  # Optional: Configure VAAPI for better performance
-  environment.systemPackages = with pkgs; [ libva-utils ];
-
   hardware.opengl = {
-    enable = true;
+    enable = true;  # Activer OpenGL
     extraPackages = with pkgs; [ vaapiIntel vaapiVdpau libvdpau-va-gl intel-media-driver ];
   };
 }
