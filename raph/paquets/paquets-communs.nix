@@ -12,5 +12,4 @@
     wget
     speechd
   ];
-
 }
