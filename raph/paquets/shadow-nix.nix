@@ -8,7 +8,7 @@
     vaapiVdpau              # Pour le support VDPau
     libvdpau-va-gl          # Pour l'accélération vidéo
     intel-media-driver      # Pilotes pour les médias Intel
-    gnome-keyring           # Pour la fonctionnalité "Remember Me"
+    # gnome-keyring           # Pour la fonctionnalité "Remember Me"
     # Ajoutez d'autres paquets nécessaires ici si besoin
   ];
 
