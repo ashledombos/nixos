@@ -17,6 +17,10 @@
         cfg.enablePlasmaBrowserIntegration = true;
       };
     };
+    preferences = {
+    "intl.locale.requested" = "fr";
+    "widget.use-xdg-desktop-portal" = true;
+    };
   };
 
   # Configuration de la langue pour Firefox
