@@ -11,13 +11,13 @@
     # ../portable.nix
   ];
 
-  ## Configuration de la disposition du clavier par défaut
-  # services.xserver = {
-  #  layout = "fr";
-  #  xkbVariant = "bepo_afnor";
-  #};
+  # Configuration de la disposition du clavier par défaut
+  services.xserver = {
+    layout = "fr";
+    xkbVariant = "bepo_afnor";
+  };
 
-  # networking.hostName = "artichaut"; # Definir le nom d’hôte.
+  networking.hostName = "artichaut"; # Definir le nom d’hôte.
 
   # Paquets 
   environment.systemPackages = with pkgs; [
