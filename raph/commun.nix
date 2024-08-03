@@ -81,9 +81,6 @@
     openFirewall = true;
   };
 
-  # Activer la lecture vocale (TTS)
-  services.speech-dispatcher.enable = true;
-
   # boot.cleanTmpFiles = true;
 
   # Configurer le pare-feu
