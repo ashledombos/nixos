@@ -11,7 +11,7 @@
 
   programs.shadow-client = {
     enable = true;  # Enable the Shadow client
-    channel = "prod";  # Set the channel to use
+    channel = "master";  # Set the channel to use
   };
 
   # Optional: Configure VAAPI for better performance
