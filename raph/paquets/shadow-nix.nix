@@ -7,7 +7,16 @@
     vaapiVdpau              # Pour le support VDPau
     libvdpau-va-gl          # Pour l'accélération vidéo
     intel-media-driver      # Pilotes pour les médias Intel
-    # gnome-keyring           # Pour la fonctionnalité "Remember Me"
+    libinput                # Pour la gestion des entrées
+    libX11                  # Pour le support X11
+    libXau                  # Pour libXau
+    libXdmcp                # Pour libXdmcp
+    libva                   # Pour VAAPI
+    libva-glx               # Pour VAAPI avec GLX
+    libva-x11               # Pour VAAPI avec X11
+    libva-wayland           # Pour VAAPI avec Wayland (si nécessaire)
+    libva-drm               # Pour VAAPI avec DRM
+    gnome-keyring           # Pour la fonctionnalité "Remember Me"
     # Ajoutez d'autres paquets nécessaires ici si besoin
   ];
 
