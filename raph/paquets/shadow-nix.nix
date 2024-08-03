@@ -5,13 +5,13 @@
   imports = [
     (fetchGit {
       url = "https://github.com/cornerman/shadow-nix";
-      ref = "main";  # Use the latest commit from the main branch
+      ref = "master";  # Use the latest commit from the main branch
     } + "/import/system.nix")
   ];
 
   programs.shadow-client = {
     enable = true;  # Enable the Shadow client
-    channel = "master";  # Set the channel to use
+    channel = "prod";  # Set the channel to use
   };
 
   # Optional: Configure VAAPI for better performance
