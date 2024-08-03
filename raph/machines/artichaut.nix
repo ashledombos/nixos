@@ -6,7 +6,7 @@
     ../amorce/boot-systemd.nix
     ../bureau/plasma.nix
     ../paquets/tailscale.nix
-    ../paquets/shadow.nix
+    ../paquets/shadow-nix.nix
     ../paquets/vscodium.nix
     # ../portable.nix
   ];
