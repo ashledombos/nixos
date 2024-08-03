@@ -12,9 +12,9 @@
   ];
 
   # Configuration de la disposition du clavier par défaut
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "fr";
-    xkbVariant = "bepo_afnor";
+    variant = "bepo_afnor";
   };
 
   networking.hostName = "artichaut"; # Definir le nom d’hôte.
