@@ -10,6 +10,7 @@
     vim
     inxi
     wget
+    speechd
   ];
 
 }
