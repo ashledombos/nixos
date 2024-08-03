@@ -12,7 +12,6 @@
   imports = [
     ./services.nix
     paquets/tailscale.nix
-    paquets/firefox.nix
     paquets/netbird.nix
     paquets/paquets-communs.nix
   ];
@@ -81,6 +80,9 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+
+  # Activer la lecture vocale (TTS)
+  services.speech-dispatcher.enable = true;
 
   # boot.cleanTmpFiles = true;
 
