@@ -8,13 +8,13 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./raph/machines/artichaut.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.initrd.luks.devices."luks-016e8a0a-8555-468e-a21a-9d6dcc6eca6a".device = "/dev/disk/by-uuid/016e8a0a-8555-468e-a21a-9d6dcc6eca6a";
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -54,7 +54,7 @@
   # Configure keymap in X11
   services.xserver = {
     layout = "fr";
-    xkbVariant = "bepo_afnor";
+    xkbVariant = "oss";
   };
 
   # Configure console keymap
@@ -83,9 +83,9 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.nomutilisateur = {
+  users.users.kali = {
     isNormalUser = true;
-    description = "Nom";
+    description = "Kali";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
