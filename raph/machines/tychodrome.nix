@@ -6,6 +6,7 @@
     ../amorce/boot-grub.nix
     ../bureau/deepin.nix
     ../portable.nix
+    ../paquets/netbird.nix
   ];
 
   # Configuration de la disposition du clavier par défaut
