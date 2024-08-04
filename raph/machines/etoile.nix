@@ -6,7 +6,6 @@
     ../amorce/boot-systemd.nix
     ../bureau/plasma.nix
     ../paquets/netbird.nix
-    ../paquets/shadow-nix.nix
     ../paquets/vscodium.nix
     ../portable.nix
   ];
