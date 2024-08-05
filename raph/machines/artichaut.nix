@@ -25,6 +25,4 @@
     jdk
   ];
 
-    programs.nix-index.enable = true;
-
 }
