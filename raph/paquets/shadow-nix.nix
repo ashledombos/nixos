@@ -1,18 +1,28 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    (import (fetchGit {
-      url = "https://github.com/anthonyroussel/shadow-nix";
-      ref = "refs/tags/v1.5.0";
-    }) + "/import/system.nix")
+  #imports = [
+  #  (import (fetchGit {
+  #    url = "https://github.com/anthonyroussel/shadow-nix";
+  #    ref = "refs/tags/v1.5.0";
+  #  }) + "/import/system.nix")
+  #];
+
+  #programs.shadow-client = {
+  #  channel = "prod";
+  #};
+
+    imports = [
+    (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.5.0"; } + "/import/system.nix")
   ];
 
   programs.shadow-client = {
+    # Enabled by default when using import
+    # enable = true;
     channel = "prod";
   };
 
-  environment.systemPackages = with pkgs; [ libva-utils ];
+ # environment.systemPackages = with pkgs; [ libva-utils ];
 
   #nixpkgs.config.packageOverrides = pkgs: {
   #  vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
