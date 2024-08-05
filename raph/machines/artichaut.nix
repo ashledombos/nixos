@@ -7,7 +7,8 @@
     ../bureau/plasma.nix
     ../paquets/tailscale.nix
     ../paquets/vscodium.nix
-    ../paquets/nix-config.nix
+    ../paquets/netbird.nix
+    # ../paquets/nix-config.nix
     # ../portable.nix
   ];
 
