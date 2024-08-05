@@ -1,21 +1,35 @@
 { config, pkgs, ... }:
 
 {
-  # Installer les paquets nécessaires pour ShadowPC
-  environment.systemPackages = with pkgs; [
-    libva-utils             # Pour le support de VAAPI
-    vaapiVdpau              # Pour le support VDPau
-    libvdpau-va-gl          # Pour l'accélération vidéo
-    intel-media-driver      # Pilotes pour les médias Intel
-    libinput                # Pour la gestion des entrées
-    xorg                    # Inclut libX11 et d'autres bibliothèques X11
-    # gnome-keyring           # Pour la fonctionnalité "Remember Me"
-    # Ajoutez d'autres paquets nécessaires ici si besoin
+  imports = [
+    (import (fetchGit {
+      url = "https://github.com/anthonyroussel/shadow-nix";
+      ref = "refs/tags/v1.5.0";
+    }) + "/import/system.nix")
   ];
 
+  programs.shadow-client = {
+    channel = "prod";
+  };
+
+  environment.systemPackages = with pkgs; [ libva-utils ];
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+
   hardware.opengl = {
-    enable = true;  # Activer OpenGL
-    extraPackages = with pkgs; [ vaapiVdpau libvdpau-va-gl intel-media-driver ];
+    enable = true;
+    extraPackages = with pkgs; [
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+      intel-media-driver
+    ];
+  };
+
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
   };
 }
 
