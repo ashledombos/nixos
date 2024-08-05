@@ -7,6 +7,7 @@
     ../bureau/plasma.nix
     ../paquets/tailscale.nix
     ../paquets/vscodium.nix
+    ../paquets/nix-config.nix
     # ../portable.nix
   ];
 
