@@ -13,7 +13,7 @@
   # Configuration de la disposition du clavier par défaut
   services.xserver.xkb = {
     layout = "fr";
-    variant = "bepo_afnor";
+    variant = "afnor";
   };
 
   networking.hostName = "etoile"; # Definir le nom d’hôte.
