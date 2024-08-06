@@ -14,6 +14,7 @@
   };
 
   virtualisation.docker.enable = true;
-  users.extraGroups.docker.members = [ "raphael" ];
+  # users.extraGroups.docker.members = [ "raphael" ];
+  # Il vaut mieux associer l’utilisateur directement avec le groupe docker
 
 }
