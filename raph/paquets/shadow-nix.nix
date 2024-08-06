@@ -2,7 +2,7 @@
 
 {
 
-    imports = [
+  imports = [
     (fetchGit { url = "https://github.com/anthonyroussel/shadow-nix"; ref = "refs/tags/v1.5.0"; } + "/import/system.nix")
   ];
 
