@@ -10,7 +10,7 @@
     ../paquets/tailscale.nix
   ];
 
-  networking.hostName = "coquillage"
+  networking.hostName = "coquillage";
 
   # Configure keymap in X11
   services.xserver.xkb = {
