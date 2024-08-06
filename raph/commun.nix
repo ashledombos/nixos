@@ -11,14 +11,9 @@
   # Import des fichiers communs
   imports = [
     ./services.nix
-    paquets/tailscale.nix
-    paquets/netbird.nix
-    paquets/paquets-communs.nix
+    ./paquets/netbird.nix
+    ./paquets/paquets-communs.nix
   ];
-
-  # Gestion du démarrage.
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
 
   # Activer networkmanager pour permettre à l’utilisateur de gérer son gestionnaire de réseau
   networking.networkmanager.enable = true;
