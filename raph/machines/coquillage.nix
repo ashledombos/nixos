@@ -5,9 +5,18 @@
     ../commun.nix
     ../amorce/boot-systemd.nix
     ../bureau/plasma.nix
-    ../paquets/shadow.nix
     ../portable.nix
+    ../paquets/shadow.nix
+    ../paquets/tailscale.nix
   ];
+
+  networking.hostName = "coquillage"
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "fr";
+    variant = "afnor";
+  };
 
   # Paramètres du noyau nécessaires pour l'hibernation
   boot.kernelParams = [
