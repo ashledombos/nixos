@@ -11,8 +11,8 @@
   # Import des fichiers communs
   imports = [
     ./services.nix
-    ./paquets/netbird.nix
     ./paquets/paquets-communs.nix
+    ./paquets/netbird.nix
   ];
 
   # Activer networkmanager pour permettre à l’utilisateur de gérer son gestionnaire de réseau
