@@ -13,23 +13,23 @@
   };
 
   # Provides the `vainfo` command
-  environment.systemPackages = with pkgs; [ libva-utils ];
+  # environment.systemPackages = with pkgs; [ libva-utils ];
 
   # Hardware hybrid decoding
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-  };
+  #nixpkgs.config.packageOverrides = pkgs: {
+  #  vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  #};
 
   # Hardware drivers
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
-      vaapiIntel
-      vaapiVdpau
-      libvdpau-va-gl
-      intel-media-driver
-    ];
-  };
+  #hardware.opengl = {
+  #  enable = true;
+  #  extraPackages = with pkgs; [
+  #    vaapiIntel
+  #    vaapiVdpau
+  #    libvdpau-va-gl
+  #    intel-media-driver
+  #  ];
+  #};
 
 }
 
