@@ -24,17 +24,17 @@ let
 
     buildInputs = [ pkgs.git pkgs.makeWrapper ];
 
-    installPhase = ''
-      mkdir -p $out/bin
-      cat > $out/bin/shadowcker << EOF
+installPhase = ''
+  mkdir -p $out/bin
+  cat > $out/bin/shadowcker << 'EOF'
 #!/usr/bin/env bash
 
 # Choose the version of the client to launch (stable, beta, alpha)
-client_version="\${1:-stable}"
+client_version="${1:-stable}"
 
 # Function to launch the Shadow client
 launch_shadow() {
-  make \$client_version
+  make $client_version
   make start
 }
 
@@ -45,10 +45,10 @@ cd ${src}
 if git ls-remote &> /dev/null; then
   # Update the local repository if there are changes
   git fetch origin
-  LOCAL=\$(git rev-parse HEAD)
-  REMOTE=\$(git rev-parse origin/master)
+  LOCAL=$(git rev-parse HEAD)
+  REMOTE=$(git rev-parse origin/master)
 
-  if [ \$LOCAL != \$REMOTE ]; then
+  if [ $LOCAL != $REMOTE ]; then
     echo "Local repository is not up-to-date. Updating..."
     git pull origin master
     make clean
@@ -62,12 +62,12 @@ else
   launch_shadow
 fi
 EOF
-      chmod +x $out/bin/shadowcker
+  chmod +x $out/bin/shadowcker
 
-      # Copier l'icône dans le répertoire de sortie
-      mkdir -p $out/share/icons/hicolor/64x64/apps
-      cp ${shadowckerIcon} $out/share/icons/hicolor/64x64/apps/shadowcker.png
-    '';
+  # Copier l'icône dans le répertoire de sortie
+  mkdir -p $out/share/icons/hicolor/64x64/apps
+  cp ${shadowckerIcon} $out/share/icons/hicolor/64x64/apps/shadowcker.png
+'';
 
     meta = with pkgs.lib; {
       description = "Shadow client launcher for NixOS with version management and auto-update";
