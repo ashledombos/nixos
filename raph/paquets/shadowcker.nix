@@ -29,11 +29,13 @@ installPhase = ''
   cp ${./shadowcker-launch.sh} $out/bin/shadowcker
   chmod +x $out/bin/shadowcker
 
-  # Copier l'icône dans le répertoire de sortie
+  # Substitute variables directly in the script or pass them as part of the execution command
+  substituteInPlace $out/bin/shadowcker --replace "src_dir" "${src}"
+
+  # Copy icon in output directory
   mkdir -p $out/share/icons/hicolor/64x64/apps
   cp ${shadowckerIcon} $out/share/icons/hicolor/64x64/apps/shadowcker.png
 '';
-
 
     meta = with pkgs.lib; {
       description = "Shadow client launcher for NixOS with version management and auto-update";
