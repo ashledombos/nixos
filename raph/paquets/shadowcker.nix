@@ -30,7 +30,7 @@ installPhase = ''
 #!/usr/bin/env bash
 
 # Choose the version of the client to launch (stable, beta, alpha)
-client_version="${1:-stable}"
+client_version='${1:-stable}'
 
 # Function to launch the Shadow client
 launch_shadow() {
@@ -68,6 +68,7 @@ EOF
   mkdir -p $out/share/icons/hicolor/64x64/apps
   cp ${shadowckerIcon} $out/share/icons/hicolor/64x64/apps/shadowcker.png
 '';
+
 
     meta = with pkgs.lib; {
       description = "Shadow client launcher for NixOS with version management and auto-update";
