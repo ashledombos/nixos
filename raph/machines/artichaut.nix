@@ -8,7 +8,7 @@
     ../paquets/tailscale.nix
     ../paquets/vscodium.nix
     ../paquets/netbird.nix
-    ../paquets/shadow.nix
+    ../paquets/shadowcker.nix
     # ../paquets/nix-config.nix
     # ../portable.nix
   ];
