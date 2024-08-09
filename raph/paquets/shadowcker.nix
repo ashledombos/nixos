@@ -91,7 +91,7 @@ let
 in
 {
   # Configure and enable Docker
-  services.docker = {
+  virtualisation.docker = {
     enable = true;
     enableUserServices = true;
   };
