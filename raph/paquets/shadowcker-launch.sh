@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
-# Choose the version of the client to launch (stable, beta, alpha)
-client_version="${1:-stable}"
+# Arguments passed to the script
+src_dir=$1
+client_version=${2:-stable} # Default to 'stable' if no version is provided
 
 # Function to launch the Shadow client
 launch_shadow() {
-  make $client_version
+  cd "$src_dir"
+  make "$client_version"
   make start
 }
 
 # Check if the local git repository is up to date
-cd ${src}
+cd "$src_dir"
 
 # Check connectivity with the remote repository
 if git ls-remote &> /dev/null; then
@@ -19,7 +21,7 @@ if git ls-remote &> /dev/null; then
   LOCAL=$(git rev-parse HEAD)
   REMOTE=$(git rev-parse origin/master)
 
-  if [ $LOCAL != $REMOTE ]; then
+  if [ "$LOCAL" != "$REMOTE" ]; then
     echo "Local repository is not up-to-date. Updating..."
     git pull origin master
     make clean
