@@ -1,10 +1,9 @@
 { pkgs, config, lib, ... }:
 
-# Add users to the "docker" group to allow Shadowcker access, e.g.:
-# users.users.<username>.extraGroups = [ "network-manager" "wheel" "docker" ];
+# NixOS configuration for Shadowcker
 
 let
-  # Shadowcker logo download
+  # Download Shadowcker logo
   shadowckerIcon = pkgs.fetchurl {
     url = "https://gitlab.com/uploads/-/system/project/avatar/11800466/Shadow-2.png";
     sha256 = "7701d88c700d702c642572a07b3bdf950571974f04bc2f104beb424ce3d42482";
@@ -16,22 +15,23 @@ let
 
     src = builtins.fetchGit {
       url = "https://gitlab.com/aar642/shadowcker.git";
-      rev = "master";
-      # Replace with a specific commit hash to pin the version
-      # rev = "2706e069d3f100f7e8a210bbb294b69a583716f1";
+      # Use a specific commit hash for reproducibility
+      rev = "2706e069d3f100f7e8a210bbb294b69a583716f1";
     };
 
     buildInputs = [ pkgs.git pkgs.makeWrapper ];
 
     installPhase = ''
+      set -euo pipefail
+
       mkdir -p $out/bin
       cp ${./shadowcker-launch.sh} $out/bin/shadowcker
       chmod +x $out/bin/shadowcker
 
-      # Substitute variables directly in the script or pass them as part of the execution command
+      # Substitute variables directly in the script
       substituteInPlace $out/bin/shadowcker --replace "src_dir" "${shadowcker.src}"
 
-      # Copy icon in output directory
+      # Copy icon to output directory
       mkdir -p $out/share/icons/hicolor/64x64/apps
       cp ${shadowckerIcon} $out/share/icons/hicolor/64x64/apps/shadowcker.png
     '';
@@ -44,14 +44,13 @@ let
     };
   };
 
-  # Create a common variable for the icon path to avoid repetition
+  # Common path for the icon
   shadowckerIconPath = "${shadowcker}/share/icons/hicolor/64x64/apps/shadowcker.png";
 
-  # Create menu entries for different Shadow versions
+  # Define the desktop entries
   shadowMenuEntries = lib.concatMap (entry: [
     pkgs.writeTextFile {
       name = "shadowcker-${entry.name}.desktop";
-      destination = "${config.system.build.toplevel}/share/applications";
       text = ''
         [Desktop Entry]
         Name=${entry.desktopName}
@@ -91,16 +90,16 @@ let
 
 in
 {
-  # Install Docker and configure it
+  # Configure and enable Docker
   services.docker = {
     enable = true;
     enableUserServices = true;
   };
 
   # Ensure the user is in the Docker group
-  users.extraGroups.docker.members = [ "user" ];
+  users.extraGroups.docker.members = [ "<username>" ]; # Replace <username> with the appropriate username
 
-  # Enable X server
+  # Enable the X server
   services.xserver.enable = true;
 
   # Enable OpenGL support
@@ -117,7 +116,10 @@ in
     docker-compose
     gnumake
     xorg.xhost
-  ] ++ shadowMenuEntries;
+  ];
+
+  # Ensure desktop entries are included in the system configuration
+  environment.etc."xdg/share/applications".source = shadowMenuEntries;
 
   # Add an alias to easily use the script
   environment.etc."profile.d/shadowcker.sh".text = ''
