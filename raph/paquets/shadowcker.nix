@@ -91,10 +91,7 @@ let
 in
 {
   # Configure and enable Docker
-  virtualisation.docker = {
-    enable = true;
-    enableUserServices = true;
-  };
+  virtualisation.docker.enable = true;
 
   # Ensure the user is in the Docker group
   users.extraGroups.docker.members = [ "<username>" ]; # Replace <username> with the appropriate username
