@@ -16,7 +16,7 @@ let
     version = "1.0";
 
     src = builtins.fetchGit {
-      url = "https://github.com/aar642/shadowcker.git";
+      url = "https://gitlab.com/aar642/shadowcker.git";
       rev = "master";
       # Replace master with a "commit-hash" to pin to a specific commit
       # ref = "2706e069d3f100f7e8a210bbb294b69a583716f1";
@@ -30,7 +30,7 @@ installPhase = ''
   chmod +x $out/bin/shadowcker
 
   # Substitute variables directly in the script or pass them as part of the execution command
-  substituteInPlace $out/bin/shadowcker --replace "src_dir" "${src}"
+  substituteInPlace $out/bin/shadowcker --replace "src_dir" "${shadowcker.src}"
 
   # Copy icon in output directory
   mkdir -p $out/share/icons/hicolor/64x64/apps
