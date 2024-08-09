@@ -106,17 +106,18 @@ in
   };
 
   # Add the shadowcker package to the system environment
-  environment.systemPackages = lib.mkMerge [
-    [
-      shadowcker
-      pkgs.git  # Ensure git is installed
-      pkgs.docker  # Ensure docker is installed
-      docker-compose
-      gnumake
-      xorg.xhost
-    ]
-    shadowMenuEntries
-  ];
+environment.systemPackages = lib.mkMerge [
+  [
+    shadowcker
+    pkgs.git
+    pkgs.docker
+    pkgs.docker-compose
+    pkgs.gnumake
+    pkgs.xorg.xhost
+  ],
+  (if condition then shadowMenuEntries else [])
+];
+
 
   # Add an alias to easily use the script
   environment.etc."profile.d/shadowcker.sh".text = ''
