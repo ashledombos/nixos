@@ -1,7 +1,6 @@
 { pkgs, config, lib, ... }:
 
-# Comment to guide users
-# Add users to the "docker" group to allow Shadowcker access, eg.:
+# Add users to the "docker" group to allow Shadowcker access, e.g.:
 # users.users.<username>.extraGroups = [ "network-manager" "wheel" "docker" ];
 
 let
@@ -18,24 +17,24 @@ let
     src = builtins.fetchGit {
       url = "https://gitlab.com/aar642/shadowcker.git";
       rev = "master";
-      # Replace master with a "commit-hash" to pin to a specific commit
-      # ref = "2706e069d3f100f7e8a210bbb294b69a583716f1";
+      # Replace with a specific commit hash to pin the version
+      # rev = "2706e069d3f100f7e8a210bbb294b69a583716f1";
     };
 
     buildInputs = [ pkgs.git pkgs.makeWrapper ];
 
-installPhase = ''
-  mkdir -p $out/bin
-  cp ${./shadowcker-launch.sh} $out/bin/shadowcker
-  chmod +x $out/bin/shadowcker
+    installPhase = ''
+      mkdir -p $out/bin
+      cp ${./shadowcker-launch.sh} $out/bin/shadowcker
+      chmod +x $out/bin/shadowcker
 
-  # Substitute variables directly in the script or pass them as part of the execution command
-  substituteInPlace $out/bin/shadowcker --replace "src_dir" "${shadowcker.src}"
+      # Substitute variables directly in the script or pass them as part of the execution command
+      substituteInPlace $out/bin/shadowcker --replace "src_dir" "${shadowcker.src}"
 
-  # Copy icon in output directory
-  mkdir -p $out/share/icons/hicolor/64x64/apps
-  cp ${shadowckerIcon} $out/share/icons/hicolor/64x64/apps/shadowcker.png
-'';
+      # Copy icon in output directory
+      mkdir -p $out/share/icons/hicolor/64x64/apps
+      cp ${shadowckerIcon} $out/share/icons/hicolor/64x64/apps/shadowcker.png
+    '';
 
     meta = with pkgs.lib; {
       description = "Shadow client launcher for NixOS with version management and auto-update";
@@ -45,7 +44,10 @@ installPhase = ''
     };
   };
 
-  # Créer les entrées de menu pour différentes versions de Shadow
+  # Create a common variable for the icon path to avoid repetition
+  shadowckerIconPath = "${shadowcker}/share/icons/hicolor/64x64/apps/shadowcker.png";
+
+  # Create menu entries for different Shadow versions
   shadowMenuEntries = lib.concatMap (entry: [
     pkgs.writeTextFile {
       name = "shadowcker-${entry.name}.desktop";
@@ -64,7 +66,7 @@ installPhase = ''
     {
       name = "Shadow Stable";
       exec = "${shadowcker}/bin/shadowcker stable";
-      icon = "${shadowcker}/share/icons/hicolor/64x64/apps/shadowcker.png";
+      icon = shadowckerIconPath;
       desktopName = "Shadow (Stable)";
       comment = "Launches the stable version of the Shadow client";
       categories = "Network;RemoteAccess;";
@@ -72,7 +74,7 @@ installPhase = ''
     {
       name = "Shadow Beta";
       exec = "${shadowcker}/bin/shadowcker beta";
-      icon = "${shadowcker}/share/icons/hicolor/64x64/apps/shadowcker.png";
+      icon = shadowckerIconPath;
       desktopName = "Shadow (Beta)";
       comment = "Launches the beta version of the Shadow client";
       categories = "Network;RemoteAccess;";
@@ -80,7 +82,7 @@ installPhase = ''
     {
       name = "Shadow Alpha";
       exec = "${shadowcker}/bin/shadowcker alpha";
-      icon = "${shadowcker}/share/icons/hicolor/64x64/apps/shadowcker.png";
+      icon = shadowckerIconPath;
       desktopName = "Shadow (Alpha)";
       comment = "Launches the alpha version of the Shadow client";
       categories = "Network;RemoteAccess;";
@@ -95,17 +97,19 @@ in
     enableUserServices = true;
   };
 
-  virtualisation.docker.enable = true;
+  # Ensure the user is in the Docker group
   users.extraGroups.docker.members = [ "user" ];
 
+  # Enable X server
   services.xserver.enable = true;
 
+  # Enable OpenGL support
   hardware.opengl = {
     enable = true;
     driSupport = true;
   };
 
-  # Add the shadowcker package to the system environment
+  # Add the shadowcker package and dependencies to the system environment
   environment.systemPackages = with pkgs; [
     shadowcker
     git
@@ -114,7 +118,6 @@ in
     gnumake
     xorg.xhost
   ] ++ shadowMenuEntries;
-
 
   # Add an alias to easily use the script
   environment.etc."profile.d/shadowcker.sh".text = ''
