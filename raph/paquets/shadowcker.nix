@@ -19,7 +19,7 @@ let
       rev = "2706e069d3f100f7e8a210bbb294b69a583716f1";
     };
 
-    buildInputs = [ pkgs.git pkgs.makeWrapper ];
+    buildInputs = [ pkgs.git pkgs.makeWrapper pkgs.docker];
 
     installPhase = ''
       set -euo pipefail
