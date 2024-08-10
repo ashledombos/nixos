@@ -47,46 +47,46 @@ let
   # Common path for the icon
   shadowckerIconPath = "${shadowcker}/share/icons/hicolor/64x64/apps/shadowcker.png";
 
-  # Define the desktop entries
-  shadowMenuEntries = lib.concatMap (entry: [
-    pkgs.writeTextFile {
-      name = "shadowcker-${entry.name}.desktop";
-      text = ''
-        [Desktop Entry]
-        Name=${entry.desktopName}
-        Exec=${entry.exec}
-        Icon=${entry.icon}
-        Type=Application
-        Categories=${entry.categories}
-        Comment=${entry.comment}
-      '';
-    }
-  ]) [
-    {
-      name = "Shadow Stable";
-      exec = "${shadowcker}/bin/shadowcker stable";
-      icon = shadowckerIconPath;
-      desktopName = "Shadow (Stable)";
-      comment = "Launches the stable version of the Shadow client";
-      categories = "Network;RemoteAccess;";
-    }
-    {
-      name = "Shadow Beta";
-      exec = "${shadowcker}/bin/shadowcker beta";
-      icon = shadowckerIconPath;
-      desktopName = "Shadow (Beta)";
-      comment = "Launches the beta version of the Shadow client";
-      categories = "Network;RemoteAccess;";
-    }
-    {
-      name = "Shadow Alpha";
-      exec = "${shadowcker}/bin/shadowcker alpha";
-      icon = shadowckerIconPath;
-      desktopName = "Shadow (Alpha)";
-      comment = "Launches the alpha version of the Shadow client";
-      categories = "Network;RemoteAccess;";
-    }
-  ];
+#  # Define the desktop entries
+#  shadowMenuEntries = lib.concatMap (entry: [
+#    pkgs.writeTextFile {
+#      name = "shadowcker-${entry.name}.desktop";
+#      text = ''
+#        [Desktop Entry]
+#        Name=${entry.desktopName}
+#        Exec=${entry.exec}
+#        Icon=${entry.icon}
+#        Type=Application
+#        Categories=${entry.categories}
+#        Comment=${entry.comment}
+#      '';
+#    }
+#  ]) [
+#    {
+#      name = "Shadow Stable";
+#      exec = "${shadowcker}/bin/shadowcker stable";
+#      icon = shadowckerIconPath;
+#      desktopName = "Shadow (Stable)";
+#      comment = "Launches the stable version of the Shadow client";
+#      categories = "Network;RemoteAccess;";
+#    }
+#    {
+#      name = "Shadow Beta";
+#      exec = "${shadowcker}/bin/shadowcker beta";
+#      icon = shadowckerIconPath;
+#      desktopName = "Shadow (Beta)";
+#      comment = "Launches the beta version of the Shadow client";
+#      categories = "Network;RemoteAccess;";
+#    }
+#    {
+#      name = "Shadow Alpha";
+#      exec = "${shadowcker}/bin/shadowcker alpha";
+#      icon = shadowckerIconPath;
+#      desktopName = "Shadow (Alpha)";
+#      comment = "Launches the alpha version of the Shadow client";
+#      categories = "Network;RemoteAccess;";
+#    }
+#  ];
 
 in
 {
@@ -115,11 +115,11 @@ in
     xorg.xhost
   ];
 
-  # Ensure desktop entries are included in the system configuration
-  environment.etc."xdg/share/applications".source = shadowMenuEntries;
+#  # Ensure desktop entries are included in the system configuration
+#  environment.etc."xdg/share/applications".source = shadowMenuEntries;
 
-  # Add an alias to easily use the script
-  environment.etc."profile.d/shadowcker.sh".text = ''
-    export PATH=$PATH:${config.system.build.toplevel}/bin
-  '';
+#  # Add an alias to easily use the script
+#  environment.etc."profile.d/shadowcker.sh".text = ''
+#    export PATH=$PATH:${config.system.build.toplevel}/bin
+#  '';
 }
