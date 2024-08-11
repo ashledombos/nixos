@@ -3,7 +3,7 @@
 let
   debianImage = pkgs.fetchurl {
     url = "https://cloud.debian.org/images/cloud/bookworm/20240717-1811/debian-12-generic-amd64-20240717-1811.tar.xz";
-    hash = "sha512-1e668159c0041896cd241b4280765b03eee6957308948daf942a95801bdcbcd937bf0be60f7cae3d4b8db02d4a3b1a04fa2eb0411e0defe4b5f14cb48f19ba98";
+    sha256 = "b8111f62baffd1395c5b6640cd6fc2bbaa28f65e4c85f8741659002fdbe862f0";
   };
 
   setupScript = pkgs.writeScriptBin "setup-debian-container" ''
