@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   debianImage = pkgs.fetchurl {
@@ -13,32 +13,16 @@ let
   '';
 
 in {
-  virtualisation.containers.shadow = {
-    bindMounts."/dev" = {
-      hostPath = "/dev";
-      isReadOnly = false;
-    };
-    bindMounts."/sys" = {
-      hostPath = "/sys";
-      isReadOnly = false;
-    };
-    bindMounts."/proc" = {
-      hostPath = "/proc";
-      isReadOnly = false;
-    };
-    ephemeral = false;
-    privateNetwork = false;
-    autoStart = true;
-  };
-
-  systemd.services.setup-debian-container = {
-    description = "Setup Debian Container";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
-      ExecStart = "${setupScript}/bin/setup-debian-container";
+  systemd.nspawn.shadows = {
+    enable = true;
+    machineConfig = {
+      Bind = [
+        "/dev"
+        "/sys"
+        "/proc"
+      ];
+      PrivateUsers = false;
+      ExecStartPre = "${setupScript}/bin/setup-debian-container";
     };
   };
 }
