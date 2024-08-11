@@ -3,7 +3,7 @@
 {
 
   imports = [
-    (fetchGit { url = "https://github.com/cornerman/shadow-nix"; ref = "refs/tags/v2.0.0"; } + "/import/system.nix")
+    (fetchGit { url = "https://github.com/cornerman/shadow-nix"; ref = "refs/tags/v2.0.2"; } + "/import/system.nix")
   ];
 
   programs.shadow-client = {
