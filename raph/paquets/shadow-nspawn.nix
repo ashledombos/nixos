@@ -28,7 +28,7 @@ in {
     requiredBy = [ "machines.target" ];
     overrideStrategy = "asDropin";
     serviceConfig = {
-      ExecStartPre = "${setupScript}/bin/setup-debian-container"; // Assurez-vous que le script est exécuté avant le démarrage du service
+      ExecStartPre = "${setupScript}/bin/setup-debian-container"; # S’assurer que le script est exécuté avant le démarrage du service
     };
   };
 }
