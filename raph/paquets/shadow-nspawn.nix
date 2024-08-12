@@ -17,7 +17,7 @@ in {
 
   systemd.nspawn."debian-bookworm" = {
     enable = true;
-    directory = "/var/lib/machines/debian-bookworm";  // Spécifier le chemin correct
+    directory = "/var/lib/machines/debian-bookworm";  # Spécifier le chemin correct
     execConfig = { Boot = true; };
     filesConfig = { BindReadOnly = [ "/etc/resolv.conf:/etc/resolv.conf" ]; };
     networkConfig = { Private = false; };
