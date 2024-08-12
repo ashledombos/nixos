@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 let
   debianImage = pkgs.fetchurl {
@@ -13,15 +13,17 @@ let
   '';
 
 in {
-  systemd.nspawn.shadows = {
+  systemd.nspawn.machines.shadow = {
     enable = true;
-    machineConfig = {
-      Bind = [
-        "/dev"
-        "/sys"
-        "/proc"
-      ];
-      PrivateUsers = false;
+    directory = "/var/lib/machines/shadow";
+    ephemeral = false;
+    privateUsers = false;
+    bind = {
+      "/dev" = "/dev";
+      "/sys" = "/sys";
+      "/proc" = "/proc";
+    };
+    execConfig = {
       ExecStartPre = "${setupScript}/bin/setup-debian-container";
     };
   };
