@@ -7,7 +7,7 @@
     ../bureau/plasma.nix
     ../paquets/netbird.nix
     ../paquets/vscodium.nix
-    #../paquets/shadow-nspawn.nix
+    ../paquets/shadow-nspawn.nix
     ../portable.nix
   ];
 
