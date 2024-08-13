@@ -1,23 +1,14 @@
 { config, pkgs, ... }:
 
-let
-  debianImage = pkgs.fetchurl {
-    url = "https://cloud.debian.org/images/cloud/bookworm/20240717-1811/debian-12-generic-amd64-20240717-1811.tar.xz";
-    sha256 = "b8111f62baffd1395c5b6640cd6fc2bbaa28f65e4c85f8741659002fdbe862f0";
-  };
-in {
-  # Enable the systemd machine targets
-  systemd.targets.machines.enable = true;
+{
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (action.id == "org.freedesktop.machine1.manage-machines" &&
+          subject.isInGroup("wheel")) {
+        return polkit.Result.YES;
+      }
+    });
+  '';
+}
 
-  # Define the service for starting the nspawn container
-  systemd.services."systemd-nspawn@debian-bookworm" = {
-    enable = true;
-    requiredBy = [ "machines.target" ];
-    overrideStrategy = "asDropin";
-    serviceConfig = {
-      ExecStart = "${pkgs.systemd}/bin/systemd-nspawn --directory=/var/lib/machines/debian-bookworm --boot";
-      BindReadOnlyPaths = [ "/etc/resolv.conf" ];
-      PrivateNetwork = false;
-    };
-  };
 }
