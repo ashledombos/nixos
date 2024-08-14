@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ShadowPC
+Comment=Lancer le client ShadowPC
+Exec=nix-shell /home/user/ShadowPC/shell.nix --run "/home/user/ShadowPC/ShadowPC.AppImage"
+Icon=/home/user/ShadowPC/shadow-256.png
+Terminal=false
+Type=Application
+Categories=Internet;
