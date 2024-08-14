@@ -18,7 +18,6 @@
   virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
-    shadowcker
     git
     docker
     docker-compose
