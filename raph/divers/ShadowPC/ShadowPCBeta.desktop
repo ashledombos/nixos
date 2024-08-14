@@ -1,8 +1,10 @@
+#!/usr/bin/env xdg-open
 [Desktop Entry]
-Name=ShadowPC
-Comment=Lancer le client ShadowPC
-Exec=nix-shell /home/user/ShadowPC/shell.nix --run "/home/user/ShadowPC/ShadowPC.AppImage"
-Icon=/home/user/ShadowPC/shadow-256.png
+Name=ShadowPC Beta
+Comment=Lancer le client ShadowPC Beta
+Exec=nix-shell /home/user/Shadow/shell.nix --run "/home/user/Shadow/ShadowPCBeta.AppImage"
+Icon=/home/user/Shadow/shadowpc-beta-256.png
 Terminal=false
 Type=Application
-Categories=Internet;
+Categories=Internet;Network;Application;
+
