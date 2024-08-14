@@ -4,6 +4,7 @@
   # Installation de Podman - c'est essentiel pour démarrer
   environment.systemPackages = with pkgs; [
     podman
+    xorg.xhost
   ];
 
   # Activation de Podman - c'est également essentiel pour que Podman fonctionne correctement
