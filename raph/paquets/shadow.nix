@@ -2,19 +2,18 @@
 
 {
 
-  environment.systemPackages = with pkgs; [
-    docker-compose
-    gnumake
-    xorg.xhost
-  ];
+#  hardware.opengl = {
+#    enable = true;
+#    driSupport = true;
+#  };
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-  };
+  boot.kernelModules = [ "uinput" ];
 
-  virtualisation.docker.enable = true;
-  # users.extraGroups.docker.members = [ "raphael" ];
-  # Il vaut mieux associer l’utilisateur directement avec le groupe docker
+  services.udev.extraRules = ''
+    KERNEL=="uinput", MODE="0660", GROUP="shadow-input"
+  '';
+
+  users.groups.shadow-input = {};
+  
 
 }
