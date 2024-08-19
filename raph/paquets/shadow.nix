@@ -2,10 +2,10 @@
 
 {
 
-#  hardware.opengl = {
-#    enable = true;
-#    driSupport = true;
-#  };
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+  };
 
   boot.kernelModules = [ "uinput" ];
 
@@ -18,11 +18,41 @@
   virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
-    git
-    docker
-    docker-compose
-    gnumake
-    xorg.xhost
+    xorg.libX11
+    xorg.libXau
+    xorg.libXdmcp
+    xorg.libxcb
+    xorg.libXScrnSaver
+    xorg.libXdamage
+    xorg.libXrandr
+    xorg.libXcomposite
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXinerama
+    xorg.libXi
+    xorg.libXcursor
+    xorg.libXtst
+    libva
+    libvdpau
+    libglvnd
+    libGL
+    mesa
+    gdk-pixbuf
+    xwayland
+    libpulseaudio
+    alsa-lib
+    curl
+    dbus-glib
+    libdbusmenu
+    nspr
+    nss
+    libinput
+    SDL2
+    xdg-utils
+    at-spi2-atk
+    pango
+    libbsd
+    libxslt
   ];
   
 
