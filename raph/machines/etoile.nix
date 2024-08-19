@@ -8,6 +8,7 @@
     ../paquets/netbird.nix
     ../paquets/vscodium.nix
     ../paquets/podman.nix
+    ../paquets/shadow.nix
     ../portable.nix
   ];
 
