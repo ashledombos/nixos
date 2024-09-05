@@ -13,6 +13,8 @@
     # ../portable.nix
   ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Configuration de la disposition du clavier par défaut
   services.xserver.xkb = {
     layout = "fr";
